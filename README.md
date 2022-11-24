@@ -1,7 +1,7 @@
 # open_file
 [![pub package](https://img.shields.io/pub/v/open_file.svg)](https://pub.dartlang.org/packages/open_file)
 
-A plug-in that can call native APP to open files with string result in flutter, support iOS(DocumentInteraction) / android(intent) / PC(ffi) / web(dart:html)
+A plug-in that can call native APP to open files with string result in flutter, support iOS(UTI) / android(intent) / PC(ffi) / web(dart:html)
 
 ## Usage
 
@@ -27,11 +27,6 @@ OpenFile.open("/sdcard/example.txt");
 ```
 {
             {".3gp",    "video/3gpp"},
-            {".torrent","application/x-bittorrent"},
-            {".kml",    "application/vnd.google-earth.kml+xml"},
-            {".gpx",    "application/gpx+xml"},
-            {".csv",    "application/vnd.ms-excel"},
-            {".apk",    "application/vnd.android.package-archive"},
             {".asf",    "video/x-ms-asf"},
             {".avi",    "video/x-msvideo"},
             {".bin",    "application/octet-stream"},
@@ -99,7 +94,7 @@ OpenFile.open("/sdcard/example.txt");
 }
 
 ```
-when Conflict with other plugins about FileProvider, add code below in your `/android/app/src/main/AndroidManifest.xml`
+when Conflict with other plugins about FileProvider, add code below in your /android/app/src/main/AndroidManifest.xml
 ```xml
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           xmlns:tools="http://schemas.android.com/tools"
@@ -120,14 +115,6 @@ when Conflict with other plugins about FileProvider, add code below in your `/an
     </application>
 </manifest>
 ```
-furthermore add code below in your `/android/app/src/main/res/xml/filepaths.xml`
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <external-path name="external_storage_directory" path="." />
-</resources>
-```
-
 when Android dependency 'com.android.support:appcompat-v7' has different version for the compile error, add code below in your /android/build.gradle
 ```gradle
 subprojects {
@@ -143,7 +130,7 @@ subprojects {
 ```
 
 
-### IOS with UTI (DocumentInteraction Auto)
+### IOS with UTI
 ```
 {
             {".rtf",    "public.rtf"},
